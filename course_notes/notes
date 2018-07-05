@@ -5,10 +5,14 @@ mkdir myproject
 cd myproject
 npm init
 
+
+
 RUN IT
 node index.js
 
-DEPLOYMENT TO HEROKU
+
+
+PREPARE APP FOR HEROKU
 dynamic port binding
   const PORT = process.env.PORT || 5000; // grabs the var from heroku
   app.listen(PORT); //5000 for local dev work.
@@ -25,7 +29,15 @@ create .gitignore file
   .gitignore:
 
 
-
+DEPLOYMENT TO HEROKU
+git init
+git add .
+git commit -m "initial commit"
+heroku login
+heroku create (-> DEPLOY_URL)
+git remote add heroku DEPLOY_URL
+git push heroku master
+heroku open
 
 
 

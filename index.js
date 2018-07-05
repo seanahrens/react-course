@@ -7,7 +7,7 @@ const app = express();
 app.get('/', (req, res) => {
   // creates a brand new route handler for get reqs. post/put/delete/patch
   // res.send("<body style='background-color: #EEE;'></body>"); // { hi: 'there' }
-  res.send({ hi: 'there' }); // { hi: 'there' }
+  res.send({ bye: 'budsss' }); // { hi: 'there' }
 });
 
 const PORT = process.env.PORT || 5000; // grabs the var from heroku
