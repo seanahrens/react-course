@@ -8,7 +8,7 @@ npm init
 
 
 RUN IT
-node index.js
+npm run dev (after we installed nodemon, previously node index.js)
 
 
 
@@ -39,8 +39,12 @@ git remote add heroku DEPLOY_URL
 git push heroku master
 heroku open
 
+SAVING CODE TO GITHUB
+git push github master
 
-
-OTHER
-cat package.json
+INSTALLING PACKAGES
 npm install --save express
+npm install --save passport passport-google-oauth20
+npm install --save nodemon
+npm install --save mongoose
+npm install --save cookie-session

@@ -1,14 +1,27 @@
-//Root file
+const keys = require('./config/keys');
+
 const express = require('express'); // <---- common js modules ON SERVER SIDE
-// import express from 'express'; //alternative. module system called ES2015 modules
+const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
+require('./models/User');
+require('./services/passport');
 
-const app = express();
+mongoose.connect(keys.mongoURI);
 
-app.get('/', (req, res) => {
-  // creates a brand new route handler for get reqs. post/put/delete/patch
-  // res.send("<body style='background-color: #EEE;'></body>"); // { hi: 'there' }
-  res.send({ bye: 'budsss' }); // { hi: 'there' }
-});
+const app = express(); // import express from 'express'; //alternative. module system called ES2015 modules
+
+// cookie stuff
+app.use(
+  cookieSession({
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    keys: [keys.cookieKey]
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./routes/authRoutes')(app);
 
 const PORT = process.env.PORT || 5000; // grabs the var from heroku
 app.listen(PORT); //5000 for local dev work.

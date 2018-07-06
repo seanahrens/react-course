@@ -1,3 +1,7 @@
 google auth
   - passport.js helps
     - library components: "passport" && "passport strategy"
+
+MongoDB
+  - mongoose
+  - mlab.com, hosted mongo server
